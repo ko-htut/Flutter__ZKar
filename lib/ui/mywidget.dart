@@ -7,7 +7,6 @@ class MyCustonListTitle extends StatelessWidget {
   MyCustonListTitle(
       {Key key, @required this.icon, @required this.data, @required this.ontap})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
