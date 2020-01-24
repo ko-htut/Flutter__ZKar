@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/login.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
 import 'package:flutter_ebox/providers/series_provider.dart';
+import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/ui/consts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +24,6 @@ class _SplashState extends State<Splash> {
     return new Timer(Duration(seconds: 2), handleTimeout);
   }
 
-
   void handleTimeout() {
     changeScreen();
   }
@@ -40,7 +39,7 @@ class _SplashState extends State<Splash> {
     Provider.of<MovieProvider>(context, listen: false).gethmovie();
     Provider.of<SeriesProvider>(context, listen: false).gethseries();
     Provider.of<SongProvider>(context, listen: false).gethsong();
-  
+    Provider.of<UserProvider>(context, listen: false).gethusers();
   }
 
   @override
@@ -57,8 +56,12 @@ class _SplashState extends State<Splash> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage('images/ic_point.png'),),
-            SizedBox(height: 20,),
+            Image(
+              image: AssetImage('images/ic_point.png'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               "${Constants.appName}",
               style: TextStyle(

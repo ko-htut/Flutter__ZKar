@@ -7,7 +7,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 class SongProvider extends ChangeNotifier {
   String message;
   Song songs = Song();
-  
   bool loading = true;
 
   gethsong() async {

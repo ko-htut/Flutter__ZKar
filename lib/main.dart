@@ -5,6 +5,7 @@ import 'package:flutter_ebox/providers/app_provider.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
 import 'package:flutter_ebox/providers/series_provider.dart';
+import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/ui/consts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +17,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => MovieProvider()),
         ChangeNotifierProvider(create: (_) => SeriesProvider()),
         ChangeNotifierProvider(create: (_) => SongProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: MyApp(),
     ),

@@ -6,10 +6,12 @@ import 'package:flutter_ebox/page/about.dart';
 import 'package:flutter_ebox/page/home.dart';
 import 'package:flutter_ebox/page/movie.dart';
 import 'package:flutter_ebox/page/series.dart';
+import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/ui/consts.dart';
 import 'package:flutter_ebox/ui/custom_alart.dart';
 import 'package:flutter_ebox/util/share.dart';
 import 'package:marquee_widget/marquee_widget.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);
@@ -38,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
     _pageController.dispose();
     super.dispose();
   }
-
+  
   exitDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -118,91 +120,104 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => exitDialog(context),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Container(
-            height: 40,
-            child: TextField(
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+    return Consumer<UserProvider>(builder:
+        (BuildContext context, UserProvider userProvider, Widget widget) {
+      return Scaffold(
+          body: userProvider.loading
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : WillPopScope(
+                  onWillPop: () => exitDialog(context),
+                  child: Scaffold(
+                    appBar: AppBar(
+                      title: Container(
+                        height: 40,
+                        child: TextField(
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                //hintText: 'Search',
+                                prefixIcon: Icon(Icons.search),
+                                labelStyle: TextStyle(fontSize: 15))),
+                      ),
+                      leading: Padding(
+                        padding: const EdgeInsets.all(9.0),
+                        child: Image(image: AssetImage('images/logo.png')),
+                      ),
+                      actions: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8.0, bottom: 8.0, right: 8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Image(
+                                    image: AssetImage('images/ic_point.png'),
+                                    width: 20,
+                                    height: 20,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Marquee(
+                                    child: Text(
+                                      "${userProvider.userdatas.points}",
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                      toolbarOpacity: 1,
+                      elevation: 0.5,
                     ),
-                    //hintText: 'Search',
-                    prefixIcon: Icon(Icons.search),
-                    labelStyle: TextStyle(fontSize: 15))),
-          ),
-          leading: Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Image(image: AssetImage('images/logo.png')),
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, right: 8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Image(
-                        image: AssetImage('images/ic_point.png'),
-                        width: 20,
-                        height: 20,
+                    body: SizedBox.expand(
+                      child: PageView(
+                        controller: _pageController,
+                        onPageChanged: (index) {
+                          setState(() => _currentIndex = index);
+                        },
+                        children: <Widget>[
+                          HomePage(),
+                          MoviePage(),
+                          SeriesPage(),
+                          AboutPage(),
+                        ],
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Marquee(
-                        child: Text(
-                          "$mPoint",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      )
-                    ],
+                    ),
+                    bottomNavigationBar: BottomNavyBar(
+                      selectedIndex: _currentIndex,
+                      onItemSelected: (index) {
+                        setState(() => _currentIndex = index);
+                        _pageController.jumpToPage(index);
+                      },
+                      items: <BottomNavyBarItem>[
+                        BottomNavyBarItem(
+                            title: Text('Home'), icon: Icon(Icons.home)),
+                        BottomNavyBarItem(
+                            title: Text('Movie'), icon: Icon(Icons.movie)),
+                        BottomNavyBarItem(
+                            title: Text('Series'), icon: Icon(Icons.live_tv)),
+                        BottomNavyBarItem(
+                            title: Text('About'), icon: Icon(Icons.settings)),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-            )
-          ],
-          toolbarOpacity: 1,
-          elevation: 0.5,
-        ),
-        body: SizedBox.expand(
-          child: PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() => _currentIndex = index);
-            },
-            children: <Widget>[
-              HomePage(),
-              MoviePage(),
-              SeriesPage(),
-              AboutPage(),
-            ],
-          ),
-        ),
-        bottomNavigationBar: BottomNavyBar(
-          selectedIndex: _currentIndex,
-          onItemSelected: (index) {
-            setState(() => _currentIndex = index);
-            _pageController.jumpToPage(index);
-          },
-          items: <BottomNavyBarItem>[
-            BottomNavyBarItem(title: Text('Home'), icon: Icon(Icons.home)),
-            BottomNavyBarItem(title: Text('Movie'), icon: Icon(Icons.movie)),
-            BottomNavyBarItem(title: Text('Series'), icon: Icon(Icons.live_tv)),
-            BottomNavyBarItem(title: Text('About'), icon: Icon(Icons.settings)),
-          ],
-        ),
-      ),
-    );
+                ));
+    });
   }
 }
