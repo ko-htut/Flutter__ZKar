@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/userresponse.dart';
 import 'package:flutter_ebox/services/services.dart';
+import 'package:flutter_ebox/util/share.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -10,7 +11,8 @@ class UserProvider extends ChangeNotifier {
 
   gethusers() async {
     setLoading(true);
-    getuserdata().then((usern) {
+    String token = await mytoken();
+    getuserdata(token).then((usern) {
       setmuser(usern);
       print(usern);
       setLoading(false);

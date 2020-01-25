@@ -44,7 +44,7 @@ Future<Registerresponse> loginn(String email, String password) async {
   return registerresponseFromJson(responselogin.body);
 }
 
-Future<Movie> getmovie() async {
+Future<Movie> getmovie(String key) async {
   final responsemovie = await http.post("$link$movi", body: {
     'page': "1",
   }, headers: {
@@ -53,35 +53,35 @@ Future<Movie> getmovie() async {
   return movieFromJson(responsemovie.body);
 }
 
-Future<Series> getseries() async {
+Future<Series> getseries(String key) async {
   final repnseseries = await http.post("$link$seri", body: {
     'page': "1",
   }, headers: {
-    HttpHeaders.authorizationHeader: "Bearer $token"
+    HttpHeaders.authorizationHeader: "Bearer $key"
   });
   print(repnseseries.body);
   return seriesFromJson(repnseseries.body);
 }
 
-Future<Song> getsong() async {
+Future<Song> getsong(String key) async {
   final responsesong = await http.post("$link$post", headers: {
-    HttpHeaders.authorizationHeader: "Bearer $token",
+    HttpHeaders.authorizationHeader: "Bearer $key",
   });
   print(responsesong.body);
   return songFromJson(responsesong.body);
 }
 
-Future<Genres> getgenre() async {
+Future<Genres> getgenre(String key) async {
   final responsesong = await http.get("$link$genre", headers: {
-    HttpHeaders.authorizationHeader: "Bearer $token",
+    HttpHeaders.authorizationHeader: "Bearer $key",
   });
   print(responsesong.body);
   return genreFromJson(responsesong.body);
 }
 
-Future<UserData> getuserdata() async {
+Future<UserData> getuserdata(String key) async {
   final responseuser = await http.get("$link$user", headers: {
-    HttpHeaders.authorizationHeader: "Bearer $token",
+    HttpHeaders.authorizationHeader: "Bearer $key",
   });
   print(responseuser.body);
   return userDataFromJson(responseuser.body);

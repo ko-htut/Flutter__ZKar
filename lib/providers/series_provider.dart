@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/genreresponse.dart';
 import 'package:flutter_ebox/model/seriesresponse.dart';
 import 'package:flutter_ebox/services/services.dart';
+import 'package:flutter_ebox/util/share.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SeriesProvider extends ChangeNotifier {
@@ -12,9 +13,10 @@ class SeriesProvider extends ChangeNotifier {
 
   gethseries() async {
     setLoading(true);
-    getseries().then((seriesn) {
+    String token = await mytoken();
+    getseries(token).then((seriesn) {
       setmseries(seriesn);
-      getgenre().then((genresn) {
+      getgenre(token).then((genresn) {
         setmgenries(genresn);
         setLoading(false);
       }).catchError((e) {});

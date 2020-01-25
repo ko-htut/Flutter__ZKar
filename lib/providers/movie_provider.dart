@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/genreresponse.dart';
 import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/services/services.dart';
+import 'package:flutter_ebox/util/share.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MovieProvider extends ChangeNotifier {
@@ -12,9 +13,10 @@ class MovieProvider extends ChangeNotifier {
 
   gethmovie() async {
     setLoading(true);
-    getmovie().then((movien) {
+    String token = await mytoken();
+    getmovie(token).then((movien) {
       setmmovie(movien);
-     getgenre().then((genresn) {
+     getgenre(token).then((genresn) {
         setmgenries(genresn);
         setLoading(false);
       }).catchError((e) {});

@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_ebox/model/songresponse.dart';
 import 'package:flutter_ebox/services/services.dart';
+import 'package:flutter_ebox/util/share.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SongProvider extends ChangeNotifier {
   String message;
   Song songs = Song();
   bool loading = true;
-
+  String key;
   gethsong() async {
     setLoading(true);
-    getsong().then((songn) {
+     String token = await mytoken();
+    getsong(token).then((songn) {
       setmsong(songn);
       setLoading(false);
     }).catchError((e) {
@@ -27,11 +29,11 @@ class SongProvider extends ChangeNotifier {
     );
     notifyListeners();
   }
+  
   String getMessage() {
     return message;
   }
-
-
+  
   void setLoading(value) {
     loading = value;
     notifyListeners();
