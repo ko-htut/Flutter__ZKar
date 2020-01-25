@@ -12,6 +12,7 @@ class UserProvider extends ChangeNotifier {
     setLoading(true);
     getuserdata().then((usern) {
       setmuser(usern);
+      print(usern);
       setLoading(false);
     }).catchError((e) {
       throw (e);

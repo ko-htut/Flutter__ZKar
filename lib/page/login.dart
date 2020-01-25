@@ -24,18 +24,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-          child: Stack(
+      child: Stack(
         children: <Widget>[
-          // Container(
-          //   decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //           image: AssetImage('images/logo.png'),
-          //           fit: BoxFit.fitWidth,
-          //           alignment: Alignment.topCenter)),
-          // ),
+          Container(
+            height: 280,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('images/ebox_banner_logo.jpg'),
+                    fit: BoxFit.fill,
+                    alignment: Alignment.topCenter)),
+          ),
           Container(
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(top: 270),
+            margin: EdgeInsets.only(top: 260),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -109,8 +110,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Center(
                       child: Text(
                         'Forgot your password?',
-                        style:
-                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

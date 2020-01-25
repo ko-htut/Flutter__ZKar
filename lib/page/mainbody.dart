@@ -8,7 +8,6 @@ import 'package:flutter_ebox/page/series.dart';
 import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/ui/consts.dart';
 import 'package:flutter_ebox/ui/custom_alart.dart';
-import 'package:flutter_ebox/util/share.dart';
 import 'package:marquee_widget/marquee_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -27,13 +26,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _pageController = PageController();
-    getmypoint();
+  
   }
-
-  void getmypoint() async {
-    mPoint = await mypoint();
-  }
-
   @override
   void dispose() {
     _pageController.dispose();
