@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
           home: Splash(),
           routes: <String, WidgetBuilder>{
             '/MainScreen': (context) => MainScreen(),
+            
           },
         );
       },

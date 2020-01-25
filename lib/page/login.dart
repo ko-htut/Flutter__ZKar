@@ -1,7 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/register.dart';
+import 'package:flutter_ebox/providers/movie_provider.dart';
+import 'package:flutter_ebox/providers/post_provier.dart';
+import 'package:flutter_ebox/providers/series_provider.dart';
+import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/services/services.dart';
 import 'package:flutter_ebox/util/share.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -161,7 +168,16 @@ class _LoginPageState extends State<LoginPage> {
           profile: ressponse.data.profile,
           point: ressponse.data.points,
           token: ressponse.data.token);
+      Timer(Duration(seconds: 1), maingo);
+    }
+  }
+
+  void maingo() async {
+    String token = await mytoken();
+    if (token == null) {
+    } else {
       Navigator.pushReplacementNamed(context, '/MainScreen');
     }
+    print("My Login Token is $token");
   }
 }

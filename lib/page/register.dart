@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/login.dart';
+import 'package:flutter_ebox/providers/movie_provider.dart';
+import 'package:flutter_ebox/providers/post_provier.dart';
+import 'package:flutter_ebox/providers/series_provider.dart';
+import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/services/services.dart';
 import 'package:flutter_ebox/util/share.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -73,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
                     child: Container(
                       color: Color(0xfff5f5f5),
                       child: TextField(
@@ -132,9 +137,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderRadius: BorderRadius.circular(10)),
                     ),
                   ),
-                  
                   Padding(
-                    padding: EdgeInsets.only(top: 60),
+                    padding: EdgeInsets.only(top: 50),
                     child: Center(
                       child: InkWell(
                         onTap: () {
@@ -168,6 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+
   reg() async {
     final ressponse = await register(nameeditcontroller.text,
         emaileditcontroller.text, passwordeditcontroller.text);
