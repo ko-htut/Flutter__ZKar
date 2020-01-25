@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:marquee_widget/marquee_widget.dart';
 
@@ -30,10 +31,27 @@ class EDataItem extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Container(
                   height: 185.5,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(
-                          image: NetworkImage(image), fit: BoxFit.fill)),
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+
+                           ),
+                           borderRadius: BorderRadius.circular(10)
+                      ),
+                    ),
+                    placeholder: (context, url) => Container(
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    fit: BoxFit.fill,
+                    fadeInCurve: Curves.easeIn,
+                  ),
                 ),
               ),
               Marquee(

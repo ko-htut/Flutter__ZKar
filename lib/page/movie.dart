@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ebox/page/movie_detial.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/ui/ebox_item.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class MoviePage extends StatelessWidget {
@@ -31,7 +33,7 @@ class MoviePage extends StatelessWidget {
                               padding: const EdgeInsets.all(5.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                color: Colors.black12,
+                                    color: Colors.black12,
                                     borderRadius: BorderRadius.circular(10)),
                                 child: Center(
                                     child: Padding(
@@ -72,7 +74,17 @@ class MoviePage extends StatelessWidget {
                             title: movieProvider.movie.data[index].title,
                             image: movieProvider.movie.data[index].poster,
                             rate: movieProvider.movie.data[index].imdbRating,
-                            tap: () {},
+                            tap: () {
+                              Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  child: MovieDetial(
+                                    model: movieProvider.movie.data[index],
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
                       ),
