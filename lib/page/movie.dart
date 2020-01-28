@@ -65,7 +65,7 @@ class MoviePage extends StatelessWidget {
                             childAspectRatio:
                                 MediaQuery.of(context).size.width /
                                     (MediaQuery.of(context).size.height) /
-                                    0.85,
+                                    0.95,
                             crossAxisCount: 3,
                             crossAxisSpacing: 2.0,
                             mainAxisSpacing: 2.0),

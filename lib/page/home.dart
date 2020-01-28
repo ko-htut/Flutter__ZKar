@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ebox/page/feeddetial.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
 import 'package:flutter_ebox/ui/mywidget.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,8 +16,8 @@ class HomePage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 )
               : RefreshIndicator(
-                onRefresh: () => songProvider.gethsong(),
-                              child: Padding(
+                  onRefresh: () => songProvider.gethsong(),
+                  child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListView(
                       children: <Widget>[
@@ -31,7 +33,8 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             children: <Widget>[
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: <Widget>[
                                   Expanded(
@@ -51,7 +54,8 @@ class HomePage extends StatelessWidget {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: <Widget>[
                                   Expanded(
@@ -79,50 +83,65 @@ class HomePage extends StatelessWidget {
                           itemCount: songProvider.songs == null
                               ? 0
                               : songProvider.songs.data.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              childAspectRatio:
-                                  MediaQuery.of(context).size.width /
-                                      (MediaQuery.of(context).size.height) /
-                                      0.47,
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 2.0,
-                              mainAxisSpacing: 2.0),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  childAspectRatio:
+                                      MediaQuery.of(context).size.width /
+                                          (MediaQuery.of(context).size.height) /
+                                          0.52,
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 2.0,
+                                  mainAxisSpacing: 2.0),
                           itemBuilder: (BuildContext context, int index) {
                             return Card(
                               elevation: 0.5,
                               child: Stack(children: <Widget>[
-                                Container(
-                                  //  color: Colors.blueGrey,
-                                  height: 170.0,
-                                  child: Column(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.fromLTRB(
-                                            3.0, 0.0, 3.0, 0.0),
-                                      ),
-                                      Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0),
-                                            image: DecorationImage(
-                                                image: NetworkImage(songProvider
-                                                    .songs.data[index].image),
-                                                fit: BoxFit.fill)),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 3.0, right: 3.0),
-                                        child: Text(
-                                          songProvider.songs.data[index].title,
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.bold),
-                                          textAlign: TextAlign.justify,
-                                          maxLines: 2,
+                                InkWell(
+                                  onTap: (){
+                                     Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.downToUp,
+                                  child: PostDetials(model: songProvider.songs.data[index],)
+                                )
+                              );
+                            
+                                  },
+                                  child: Container(
+                                    //  color: Colors.blueGrey,
+                                    height: 170.0,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(
+                                              3.0, 0.0, 3.0, 0.0),
                                         ),
-                                      )
-                                    ],
+                                        Container(
+                                          height: 120,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                      songProvider.songs
+                                                          .data[index].image),
+                                                  fit: BoxFit.fill)),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 3.0, right: 3.0),
+                                          child: Text(
+                                            songProvider
+                                                .songs.data[index].title,
+                                            style: TextStyle(
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.bold),
+                                            textAlign: TextAlign.justify,
+                                            maxLines: 2,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -149,7 +168,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-              ));
+                ));
     });
   }
 }
