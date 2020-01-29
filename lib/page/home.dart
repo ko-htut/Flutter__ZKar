@@ -102,7 +102,7 @@ class HomePage extends StatelessWidget {
                                 context,
                                 PageTransition(
                                   type: PageTransitionType.downToUp,
-                                  child: PostDetials(model: songProvider.songs.data[index],)
+                                  child: PostDetial(model: songProvider.songs.data[index],)
                                 )
                               );
                             

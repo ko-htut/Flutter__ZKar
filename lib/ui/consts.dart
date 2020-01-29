@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter/services.dart';
+
 
 class Constants{
 
@@ -17,6 +19,7 @@ class Constants{
   static Color darkBG = Colors.black;
 
   static ThemeData lightTheme = ThemeData(
+   
     fontFamily: "TimesNewRoman",
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
@@ -27,6 +30,7 @@ class Constants{
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
+        
         title: TextStyle(
           fontFamily: "TimesNewRoman",
           color: Colors.black,

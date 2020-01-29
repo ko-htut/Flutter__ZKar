@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ebox/page/mainbody.dart';
 import 'package:flutter_ebox/page/splash.dart';
 import 'package:flutter_ebox/providers/app_provider.dart';
@@ -10,7 +12,10 @@ import 'package:flutter_ebox/ui/consts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+ 
+
   runApp(
+    
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppProvider()),
@@ -30,6 +35,7 @@ class MyApp extends StatelessWidget {
     return Consumer<AppProvider>(
       builder: (BuildContext context, AppProvider appProvider, Widget child) {
         return MaterialApp(
+          
           key: appProvider.key,
           debugShowCheckedModeBanner: false,
           navigatorKey: appProvider.navigatorKey,

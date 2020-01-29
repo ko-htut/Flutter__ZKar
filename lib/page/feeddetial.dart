@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ebox/model/songresponse.dart';
 import 'package:flutter_ijkplayer/flutter_ijkplayer.dart';
 
-class PostDetials extends StatefulWidget {
+class PostDetial extends StatefulWidget {
   final Datum model;
-
-  PostDetials({
+  
+  PostDetial({
     Key key,
     @required this.model,
-  }) ;
+  });
   @override
-  _PostDetialsPageState createState() => _PostDetialsPageState();
+  _PostDetialPageState createState() => _PostDetialPageState();
 }
 
-class _PostDetialsPageState extends State<PostDetials> {
+class _PostDetialPageState extends State<PostDetial> {
   IjkMediaController controller = IjkMediaController();
 
   @override
   void initState() {
     super.initState();
+    
     initIjkController();
   }
 
@@ -30,16 +32,93 @@ class _PostDetialsPageState extends State<PostDetials> {
 
   @override
   Widget build(BuildContext context) {
+ 
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
+  
     return Scaffold(
-      appBar: AppBar( backgroundColor: Colors.transparent,
-        title: Text(widget.model.title),
-      ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
-          AspectRatio(
-            aspectRatio: 1280 / 720,
-            child: IjkPlayer(
-              mediaController: controller,
+          Container(
+            height: 230,
+            color: Colors.black,
+            width: MediaQuery.of(context).size.width,
+            child: Stack(children: <Widget>[
+              Container(
+                color: Colors.black,
+                child: AspectRatio(
+                  aspectRatio: 1280 / 720,
+                  child: IjkPlayer(
+                    mediaController: controller,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                  padding:
+                      EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                  icon: Icon(
+                    Icons.keyboard_arrow_left,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  padding:
+                      EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                  icon: Icon(
+                    Icons.panorama_fish_eye,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    print(MediaQuery.of(context).size.height);
+                  },
+                ),
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: MediaQuery.of(context).size.height - 250,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.black12,
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                      widget.model.title,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      widget.model.type,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    trailing: Icon(
+                      Icons.cloud_download,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(widget.model.content),
+                  ),
+                  Divider(),
+                  Image(
+                    image: NetworkImage(widget.model.image),
+                  )
+                ],
+              ),
             ),
           ),
         ],
@@ -57,7 +136,6 @@ class _PostDetialsPageState extends State<PostDetials> {
     );
 
     await controller.setDataSource(
-      
       DataSource.network(widget.model.video),
       autoPlay: true,
     );
