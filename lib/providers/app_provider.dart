@@ -28,7 +28,7 @@ class AppProvider extends ChangeNotifier{
       prefs.setString("theme", c).then((val){
         SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
         SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarColor: c == "dark" ? Constants.darkPrimary : Constants.lightPrimary,
+          statusBarColor: c == "dark" ? Constants.hide : Constants.hide,
           statusBarIconBrightness: c == "dark" ? Brightness.light:Brightness.dark,
         ));
       });

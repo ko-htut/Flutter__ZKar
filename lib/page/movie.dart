@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/movie_detial.dart';
+
 import 'package:flutter_ebox/providers/movie_provider.dart';
+import 'package:flutter_ebox/services/services.dart';
 import 'package:flutter_ebox/ui/ebox_item.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +67,7 @@ class MoviePage extends StatelessWidget {
                             childAspectRatio:
                                 MediaQuery.of(context).size.width /
                                     (MediaQuery.of(context).size.height) /
-                                    0.95,
+                                    0.9,
                             crossAxisCount: 3,
                             crossAxisSpacing: 2.0,
                             mainAxisSpacing: 2.0),
@@ -79,9 +81,7 @@ class MoviePage extends StatelessWidget {
                                 context,
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
-                                  child: MovieDetial(
-                                    model: movieProvider.movie.data[index],
-                                  ),
+                                  child: MovieDetails(movieProvider.movie.data[index]),
                                 ),
                               );
                             },

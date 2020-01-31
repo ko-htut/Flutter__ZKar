@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/login.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
@@ -183,7 +185,19 @@ class _RegisterPageState extends State<RegisterPage> {
           profile: ressponse.data.profile,
           point: ressponse.data.points,
           token: ressponse.data.token);
-      Navigator.pushReplacementNamed(context, '/MainScreen');
+       Timer(Duration(seconds: 1), maingo);
     }
+  }
+   void maingo() async {
+    String token = await mytoken();
+    if (token == null) {
+    } else {
+      Navigator.pushReplacementNamed(context, '/MainScreen');
+      Provider.of<MovieProvider>(context, listen: false).gethmovie();
+      Provider.of<SeriesProvider>(context, listen: false).gethseries();
+      Provider.of<SongProvider>(context, listen: false).gethsong();
+      Provider.of<UserProvider>(context, listen: false).gethusers();
+    }
+    print("My Login Token is $token");
   }
 }

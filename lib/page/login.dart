@@ -179,5 +179,9 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacementNamed(context, '/MainScreen');
     }
     print("My Login Token is $token");
+    Provider.of<MovieProvider>(context, listen: false).gethmovie();
+    Provider.of<SeriesProvider>(context, listen: false).gethseries();
+    Provider.of<SongProvider>(context, listen: false).gethsong();
+    Provider.of<UserProvider>(context, listen: false).gethusers();
   }
 }

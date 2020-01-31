@@ -30,7 +30,7 @@ class EDataItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Container(
-                  height: 185.5,
+                  height: 175,
                   child: CachedNetworkImage(
                     imageUrl: image,
                     imageBuilder: (context, imageProvider) => Container(

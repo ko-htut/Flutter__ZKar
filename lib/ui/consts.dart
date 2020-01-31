@@ -17,6 +17,7 @@ class Constants{
   static Color darkAccent = Color(0xff06d6a7);
   static Color lightBG = Colors.white;
   static Color darkBG = Colors.black;
+  static Color hide = Colors.transparent;
 
   static ThemeData lightTheme = ThemeData(
    

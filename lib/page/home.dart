@@ -101,8 +101,8 @@ class HomePage extends StatelessWidget {
                                      Navigator.push(
                                 context,
                                 PageTransition(
-                                  type: PageTransitionType.downToUp,
-                                  child: PostDetial(model: songProvider.songs.data[index],)
+                                  type: PageTransitionType.rightToLeft,
+                                  child: PostDetial(model: songProvider.songs.data[index],trans: Colors.transparent,)
                                 )
                               );
                             
