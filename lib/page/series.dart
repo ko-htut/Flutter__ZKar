@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ebox/page/seriesdetails.dart';
 import 'package:flutter_ebox/providers/series_provider.dart';
 import 'package:flutter_ebox/ui/ebox_item.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class SeriesPage extends StatelessWidget {
@@ -68,7 +70,16 @@ class SeriesPage extends StatelessWidget {
                           title: seriesProvider.series.data[index].title,
                           image: seriesProvider.series.data[index].poster,
                           rate: seriesProvider.series.data[index].imdbRating,
-                          tap: () {},
+                          tap: () {
+
+                             Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  child: SeriesDetails(model: seriesProvider.series.data[index]),
+                                ),
+                              );
+                          },
                         );
                       },
                     ),

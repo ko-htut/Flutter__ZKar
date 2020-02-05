@@ -11,7 +11,7 @@ class ArcBannerImage extends StatelessWidget {
 
     return new ClipPath(
       clipper: new ArcClipper(),
-      child: new Image(
+      child:  Image(
         image: NetworkImage(imageUrl),
         width: screenWidth,
         height: 230.0,
