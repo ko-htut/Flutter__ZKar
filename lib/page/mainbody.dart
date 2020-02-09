@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:flashy_tab_bar/flashy_tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/about.dart';
 import 'package:flutter_ebox/page/home.dart';
@@ -26,14 +27,14 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _pageController = PageController();
-  
   }
+
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
   }
-  
+
   exitDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -192,25 +193,33 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                    bottomNavigationBar: BottomNavyBar(
+                    bottomNavigationBar: FlashyTabBar(
                       selectedIndex: _currentIndex,
+                      showElevation: true,
                       onItemSelected: (index) {
                         setState(() => _currentIndex = index);
                         _pageController.jumpToPage(index);
                       },
-                      items: <BottomNavyBarItem>[
-                        BottomNavyBarItem(
-                            title: Text('Home'), icon: Icon(Icons.home)),
-                        BottomNavyBarItem(
-                            title: Text('Movie'), icon: Icon(Icons.movie)),
-                        BottomNavyBarItem(
-                            title: Text('Series'), icon: Icon(Icons.live_tv)),
-                        BottomNavyBarItem(
-                            title: Text('About'), icon: Icon(Icons.settings)),
+                      items: [
+                        FlashyTabBarItem(
+                          icon: Icon(Icons.home),
+                          title: Text('Home'),
+                        ),
+                        FlashyTabBarItem(
+                          icon: Icon(Icons.movie),
+                          title: Text('Movies'),
+                        ),
+                        FlashyTabBarItem(
+                          icon: Icon(Icons.live_tv),
+                          title: Text('Series'),
+                        ),
+                        FlashyTabBarItem(
+                          icon: Icon(Icons.settings),
+                          title: Text('Settings'),
+                        ),
                       ],
                     ),
-                  ),
-                ));
+                  )));
     });
   }
 }

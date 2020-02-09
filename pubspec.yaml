@@ -31,6 +31,7 @@ dependencies:
   flutter_ijkplayer: ^0.3.5+1
   
   cupertino_icons: ^0.1.2
+  flashy_tab_bar: ^0.0.2
 
 dev_dependencies:
   flutter_test:

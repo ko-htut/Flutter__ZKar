@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "selection",
+    "editor.cursorStyle": "block-outline",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.autoClosingQuotes": "beforeWhitespace",
+    "editor.tabCompletion": "on"
+}
