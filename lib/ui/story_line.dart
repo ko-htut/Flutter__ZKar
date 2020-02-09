@@ -10,28 +10,29 @@ class Storyline extends StatelessWidget {
     var theme = Theme.of(context);
     var textTheme = theme.textTheme;
 
-    return new Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        new Text(
-          'Story line',
-          style: textTheme.subhead.copyWith(fontSize: 18.0),
-        ),
-        new Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: new Text(
-            storyline,
-            style: textTheme.body1.copyWith(
-              fontSize: 16.0,
+    return  new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Text(
+            'Story line',
+            style: textTheme.subhead.copyWith(fontSize: 18.0),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: new Text(
+              storyline,
+              style: textTheme.body1.copyWith(
+                fontSize: 16.0,
+              ),
             ),
           ),
-        ),
-        new Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[],
-        ),
-      ],
+          new Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[],
+          ),
+        ],
+      
     );
   }
 }

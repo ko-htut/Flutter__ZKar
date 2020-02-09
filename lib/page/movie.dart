@@ -81,7 +81,7 @@ class MoviePage extends StatelessWidget {
                                 context,
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
-                                  child: MovieDetails(movieProvider.movie.data[index]),
+                                  child: MovieDetails(model:movieProvider.movie.data[index]),
                                 ),
                               );
                             },
