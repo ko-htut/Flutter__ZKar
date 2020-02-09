@@ -20,6 +20,7 @@ class _MovieDetailsState extends State<MovieDetails> {
         length: 2,
         child: img.Stack(
           children: <Widget>[
+            
             img.Container(
                 height: 280,
                 child: img.Image(
@@ -58,6 +59,21 @@ class _MovieDetailsState extends State<MovieDetails> {
                     ],
                   ),
                 ),
+              ),
+            ),
+             Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                padding:
+                    EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                icon: Icon(
+                  Icons.keyboard_arrow_left,
+                  color: Colors.white,
+                  size: 32,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
             ),
           ],

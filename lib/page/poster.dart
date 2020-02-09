@@ -17,13 +17,16 @@ class Poster extends StatelessWidget {
 
     return new Material(
       borderRadius: new BorderRadius.circular(4.0),
-      elevation: 2.0,
-      child: new Image(
-        
-       image: NetworkImage(posterUrl),
-        fit: BoxFit.cover,
+      elevation: 10.0,
+      child: Container(
         width: width,
         height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: NetworkImage(posterUrl))),
+        
       ),
     );
   }

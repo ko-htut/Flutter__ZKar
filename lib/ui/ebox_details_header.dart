@@ -19,7 +19,12 @@ class EboxDetailsHeader extends StatelessWidget {
             padding: const EdgeInsets.only(top: 35.0),
             child: Container(
               height: 165,
-              color: Colors.black54,
+            
+              decoration: BoxDecoration(
+                color: Colors.black54,
+                 borderRadius: new BorderRadius.vertical(
+            top: new Radius.circular(15.0),)
+              ),
             ),
           ),
           Padding(
@@ -52,22 +57,7 @@ class EboxDetailsHeader extends StatelessWidget {
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                         ),
-                        // Container(
-                        //   height: 40,
-                        //   child: ListView.builder(
-                        //     itemCount: model.genre.length,
-                        //     scrollDirection: Axis.horizontal,
-                        //     itemBuilder: (BuildContext context, int index) {
-                        //       return Padding(
-                        //         padding: const EdgeInsets.only(right: 8.0),
-                        //         child: Chip(
-                        //           label: Text(model.genre[index].name),
-                        //           backgroundColor: Colors.greenAccent,
-                        //         ),
-                        //       );
-                        //     },
-                        //   ),
-                        // ),
+                    
                       ],
                     ),
                   ),
@@ -78,7 +68,7 @@ class EboxDetailsHeader extends StatelessWidget {
           Align(
               alignment: Alignment.topRight,
               child: Padding(
-                  padding: const EdgeInsets.only(right: 10.0, top: 10),
+                  padding: const EdgeInsets.only(right: 13.5, top: 14),
                   child: Container(
                     height: 35,
                     width: 100,

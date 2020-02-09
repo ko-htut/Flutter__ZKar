@@ -57,7 +57,7 @@ class _SplashState extends State<Splash> {
       ),
     );
     Provider.of<MovieProvider>(context, listen: false).gethmovie();
-    Provider.of<SeriesProvider>(context, listen: false).gethseries();
+
     Provider.of<SongProvider>(context, listen: false).gethsong();
     Provider.of<UserProvider>(context, listen: false).gethusers();
   }

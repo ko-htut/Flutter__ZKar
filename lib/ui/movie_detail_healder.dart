@@ -19,8 +19,13 @@ class EboxDetailsHeader extends StatelessWidget {
             padding: const EdgeInsets.only(top: 35.0),
             child: Container(
               height: 165,
-              color: Colors.black54,
-            ),
+             decoration: BoxDecoration(
+               color: Colors.black54,
+                borderRadius: new BorderRadius.vertical(
+            top: new Radius.circular(15.0),
+            
+             ),
+             ))
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15.0, right: 15),
@@ -63,7 +68,7 @@ class EboxDetailsHeader extends StatelessWidget {
           Align(
               alignment: Alignment.topRight,
               child: Padding(
-                  padding: const EdgeInsets.only(right: 10.0, top: 10),
+                  padding: const EdgeInsets.only(right: 10.0, top: 14),
                   child: Container(
                     height: 35,
                     width: 100,

@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_ebox/page/mainbody.dart';
 import 'package:flutter_ebox/page/splash.dart';
 import 'package:flutter_ebox/providers/app_provider.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
+import 'package:flutter_ebox/providers/season_provider.dart';
 import 'package:flutter_ebox/providers/series_provider.dart';
 import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/ui/consts.dart';
@@ -21,6 +20,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => AppProvider()),
         ChangeNotifierProvider(create: (_) => MovieProvider()),
         ChangeNotifierProvider(create: (_) => SeriesProvider()),
+        ChangeNotifierProvider(create: (_) => SeasonProvider()),
         ChangeNotifierProvider(create: (_) => SongProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
       ],

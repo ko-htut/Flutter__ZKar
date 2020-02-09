@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/seriesresponse.dart';
+import 'package:flutter_ebox/page/season_ui.dart';
 import 'package:flutter_ebox/ui/ebox_details_header.dart';
 import 'package:flutter_ebox/ui/story_line.dart';
 
@@ -67,7 +68,7 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                                 child: img.TabBarView(
                                   children: [
                                    new Storyline(widget.model.content),
-                                    Icon(Icons.directions_transit),
+                                     SeasonUi(id: widget.model.id),
                                    
                                   ],
                                 )
@@ -82,24 +83,24 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                 ),
               ),
             ),
+             Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                padding:
+                    EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                icon: Icon(
+                  Icons.keyboard_arrow_left,
+                  color: Colors.white,
+                  size: 32,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-//  body: SizedBox.expand(
-//                       child: PageView(
-//                         controller: _pageController,
-//                         onPageChanged: (index) {
-//                           setState(() => _currentIndex = index);
-//                         },
-//                         children: <Widget>[
-//                           HomePage(),
-//                           MoviePage(),
-//                           SeriesPage(),
-//                           AboutPage(),
-//                         ],
-//                       ),
-//                     ),

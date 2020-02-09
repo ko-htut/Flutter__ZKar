@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/model/resigerresponse.dart';
+import 'package:flutter_ebox/model/season_response.dart';
 import 'package:flutter_ebox/model/seriesresponse.dart';
 import 'package:flutter_ebox/model/songresponse.dart';
 import 'package:flutter_ebox/model/genreresponse.dart';
@@ -16,9 +17,11 @@ final movidlink = "movie_directlink";
 final movidl = "movie_download";
 final moviser = "movie/search";
 final movirep = "movie/report";
-final movicunt = "movie_directlink/count";
+final movidrcunt = "movie_directlink/count";
+final movidcount = "movie_download/count";
 final moviby = "buy/movie";
 final seri = "series";
+final sesn = "season";
 final post = "news";
 final genre = "show/genre";
 final user = "user";
@@ -51,14 +54,24 @@ Future<Movie> getmovie(String key) async {
   return movieFromJson(responsemovie.body);
 }
 
-Future<Series> getseries(String key) async {
+Future<Series> getseries(String key,String page) async {
   final repnseseries = await http.post("$link$seri", body: {
-    'page': "1",
+    'page': page,
   }, headers: {
     HttpHeaders.authorizationHeader: "Bearer $key"
   });
   print(repnseseries.body);
   return seriesFromJson(repnseseries.body);
+}
+
+Future<Season> getseason(String key,String id) async {
+  final repnseseries = await http.post("$link$sesn", body: {
+    'id': id,
+  }, headers: {
+    HttpHeaders.authorizationHeader: "Bearer $key"
+  });
+  print(repnseseries.body);
+  return seasonFromJson(repnseseries.body);
 }
 
 Future<Song> getsong(String key) async {

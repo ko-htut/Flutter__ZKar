@@ -194,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
     } else {
       Navigator.pushReplacementNamed(context, '/MainScreen');
       Provider.of<MovieProvider>(context, listen: false).gethmovie();
-      Provider.of<SeriesProvider>(context, listen: false).gethseries();
+    
       Provider.of<SongProvider>(context, listen: false).gethsong();
       Provider.of<UserProvider>(context, listen: false).gethusers();
     }
