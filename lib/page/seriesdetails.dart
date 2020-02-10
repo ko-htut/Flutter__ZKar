@@ -1,5 +1,7 @@
 //import 'dart:html';
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -26,11 +28,18 @@ class _SeriesDetailsState extends State<SeriesDetails> {
         child: img.Stack(
           children: <Widget>[
             img.Container(
-                height: 280,
-                child: img.Image(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.1),
+                  ),
+                ),
+                height: 260,
+                decoration: img.BoxDecoration(
+                    image: DecorationImage(
+                      fit: img.BoxFit.fill,
                   image: NetworkImage(widget.model.cover),
-                  fit: BoxFit.fill,
-                )),
+                ))),
             SingleChildScrollView(
               child: img.Container(
                 color: Colors.black45,
@@ -67,17 +76,21 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                             color: Colors.grey,
                             child: Card(
                               child: img.Padding(
-                                  padding: const EdgeInsets.all(15.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: img.TabBarView(
                                     children: [
                                       ListView(
-                                       physics: img.NeverScrollableScrollPhysics(),
-                                        children: <Widget>[
-                                        img.Text(
-                                          widget.model.content,
-                                          style: img.TextStyle(),
-                                        )
-                                      ]),
+                                          physics: img
+                                              .NeverScrollableScrollPhysics(),
+                                          children: <Widget>[
+                                            img.Padding(
+                                              padding: const EdgeInsets.only(left:10.0,right: 10,bottom: 10),
+                                              child: img.Text(
+                                                widget.model.content,
+                                                style: img.TextStyle(),
+                                              ),
+                                            )
+                                          ]),
                                       //   DescriptionTextWidget(text:widget.model.content),
                                       SeasonUi(id: widget.model.id),
                                     ],
