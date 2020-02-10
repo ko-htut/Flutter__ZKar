@@ -1,5 +1,7 @@
 //import 'dart:html';
 
+import 'dart:math';
+
 import 'package:flutter/material.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/seriesresponse.dart';
@@ -29,61 +31,68 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                   image: NetworkImage(widget.model.cover),
                   fit: BoxFit.fill,
                 )),
-            SingleChildScrollView(
-              child: img.Container(
-                color: Colors.white30,
-                child: img.Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: img.Column(
-                    children: <Widget>[
-                      EboxDetailsHeader(
-                        model: widget.model,
-                      ),
-                      img.Padding(
-                        padding: const EdgeInsets.only(left: 10.0, right: 10),
-                        child: img.Container(
-                          color: img.Colors.black54,
-                          child: img.TabBar(
-                            tabs: [
-                              Tab(
-                                text: "About",
-                              ),
-                              Tab(
-                                text: "Series",
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      img.Padding(
-                        padding: const EdgeInsets.only(
-                          left: 10.0,
-                          right: 10,
-                        ),
-                        child: img.Container(
-                            height:  MediaQuery.of(context).size.height,
-                            color: Colors.black54,
-                            child: img.Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: img.TabBarView(
-                                  children: [
-                                   new Storyline(widget.model.content),
-                                     SeasonUi(id: widget.model.id),
-                                   
-                                  ],
-                                )
-                                //  child: new Storyline(model.content),
-                                )
+            CustomScrollView(slivers: <Widget>[
+              SliverAppBar(
+                  bottom:  img.TabBar(
+                              tabs: [
+                                Tab(
+                                  text: "About",
                                 ),
+                                Tab(
+                                  text: "Series",
+                                ),
+                              ],
+                            ),
+
+                    pinned: false,
+                    expandedHeight: 340.0,
+                    flexibleSpace: FlexibleSpaceBar(
+                        background: Container(
+                      color: Colors.white30,
+                      child: img.Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: img.Column(
+                          children: <Widget>[
+                            EboxDetailsHeader(
+                              model: widget.model,
+                            ),
+                            img.Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10.0, right: 10),
+                              child: img.Container(
+                                color: img.Colors.black54,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-               
-                      
+                    )),
+              ),
+              SliverFillRemaining(
+                child: img.Padding(
+                  padding: const EdgeInsets.only(
+                    left: 10.0,
+                    right: 10,
+                  ),
+                  child: img.Wrap(
+                    children: <img.Widget>[
+                      img.Container(
+                          height: MediaQuery.of(context).size.height,
+                          color: Colors.black54,
+                          child: img.Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: img.TabBarView(
+                                children: [
+                                  new Storyline(widget.model.content),
+                                  SeasonUi(id: widget.model.id),
+                                ],
+                              ))),
                     ],
                   ),
                 ),
-              ),
-            ),
-             Align(
+              )
+            ]),
+            Align(
               alignment: Alignment.topLeft,
               child: IconButton(
                 padding:

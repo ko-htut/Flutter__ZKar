@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class Storyline extends StatelessWidget {
   final String storyline;
@@ -10,23 +11,26 @@ class Storyline extends StatelessWidget {
     var theme = Theme.of(context);
     var textTheme = theme.textTheme;
 
-    return  new Column(
+    return   Column(
+      mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Text(
+           Text(
             'Story line',
-            style: textTheme.subhead.copyWith(fontSize: 18.0),
+            style: textTheme.subtitle1.copyWith(fontSize: 18.0),
           ),
-          new Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: new Text(
-              storyline,
-              style: textTheme.body1.copyWith(
-                fontSize: 16.0,
-              ),
-            ),
+          Wrap(
+            // mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+               Text(
+                  storyline,
+                  style: textTheme.bodyText2.copyWith(
+                    fontSize: 16.0,
+                  ),
+                ),
+            ],
           ),
-          new Row(
+           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[],
