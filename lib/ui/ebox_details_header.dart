@@ -21,7 +21,7 @@ class EboxDetailsHeader extends StatelessWidget {
               height: 165,
             
               decoration: BoxDecoration(
-                color: Colors.black54,
+                color: Colors.grey,
                  borderRadius: new BorderRadius.vertical(
             top: new Radius.circular(15.0),)
               ),
@@ -76,7 +76,7 @@ class EboxDetailsHeader extends StatelessWidget {
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Card(child: Center(child: Text("data",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
+                    child: Card(child: Center(child: Text(model.credit.id.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
                   ))),
         ]),
       ),
