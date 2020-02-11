@@ -55,7 +55,8 @@ Future<Movie> getmovie(String key) async {
 }
 
 Future<Series> getseries(String key,String page) async {
-  final repnseseries = await http.post("$link$seri", body: {
+  final repnseseries = await 
+  http.post("$link$seri", body: {
     'page': page,
   }, headers: {
     HttpHeaders.authorizationHeader: "Bearer $key"

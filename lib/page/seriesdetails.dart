@@ -31,18 +31,18 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                   child: Container(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Color.fromARGB(41, 41, 41, 41),
                   ),
                 ),
                 height: 260,
                 decoration: img.BoxDecoration(
                     image: DecorationImage(
-                      fit: img.BoxFit.fill,
+                  fit: img.BoxFit.fill,
                   image: NetworkImage(widget.model.cover),
                 ))),
             SingleChildScrollView(
               child: img.Container(
-                color: Colors.black45,
+             //   color: Color.fromARGB(150, 41, 41, 41),
                 child: img.Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: img.Column(
@@ -51,9 +51,9 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                         model: widget.model,
                       ),
                       img.Padding(
-                        padding: const EdgeInsets.only(left: 10.0, right: 10),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20),
                         child: img.Container(
-                          color: img.Colors.grey,
+                          color: Color.fromARGB(150, 41, 41, 41),
                           child: img.TabBar(
                             tabs: [
                               Tab(
@@ -68,12 +68,12 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                       ),
                       img.Padding(
                         padding: const EdgeInsets.only(
-                          left: 10.0,
-                          right: 10,
+                          left: 20.0,
+                          right: 20,
                         ),
                         child: img.Container(
                             height: MediaQuery.of(context).size.height - 75,
-                            color: Colors.grey,
+                            color: Color.fromARGB(150, 41, 41, 41),
                             child: Card(
                               child: img.Padding(
                                   padding: const EdgeInsets.all(5.0),
@@ -84,7 +84,10 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                                               .NeverScrollableScrollPhysics(),
                                           children: <Widget>[
                                             img.Padding(
-                                              padding: const EdgeInsets.only(left:10.0,right: 10,bottom: 10),
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0,
+                                                  right: 10,
+                                                  bottom: 10),
                                               child: img.Text(
                                                 widget.model.content,
                                                 style: img.TextStyle(),

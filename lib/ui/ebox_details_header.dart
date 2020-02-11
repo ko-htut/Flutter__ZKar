@@ -11,7 +11,7 @@ class EboxDetailsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 100),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 120),
       child: Container(
         // color: Colors.white30,
         child: Stack(children: <Widget>[
@@ -21,7 +21,7 @@ class EboxDetailsHeader extends StatelessWidget {
               height: 165,
             
               decoration: BoxDecoration(
-                color: Colors.grey,
+              color: Color.fromARGB(150, 41, 41, 41),
                  borderRadius: new BorderRadius.vertical(
             top: new Radius.circular(15.0),)
               ),
@@ -73,7 +73,7 @@ class EboxDetailsHeader extends StatelessWidget {
                     height: 35,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: Colors.black54,
+                     color: Color.fromARGB(150, 41, 41, 41),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Card(child: Center(child: Text(model.credit.id.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
