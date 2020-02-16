@@ -3,13 +3,9 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 
-
-class Constants{
-
+class Constants {
   //App related strings
   static String appName = "Zkar";
-
-
   //Colors for theme
   static Color lightPrimary = Colors.white;
   static Color darkPrimary = Colors.black;
@@ -20,23 +16,21 @@ class Constants{
   static Color hide = Colors.transparent;
 
   static ThemeData lightTheme = ThemeData(
-   
     fontFamily: "TimesNewRoman",
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
-    accentColor:  lightAccent,
+    accentColor: lightAccent,
     cursorColor: lightAccent,
     indicatorColor: darkAccent,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
-        
-        title: TextStyle(
+        headline6: TextStyle(
           fontFamily: "TimesNewRoman",
           color: Colors.black,
           fontSize: 20,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ),
@@ -54,16 +48,15 @@ class Constants{
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           fontFamily: "TimesNewRoman",
           color: lightBG,
           fontSize: 20,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ),
   );
-
 
   static List<T> map<T>(List list, Function handler) {
     List<T> result = [];
@@ -75,12 +68,11 @@ class Constants{
   }
 
   static formatBytes(bytes, decimals) {
-    if(bytes == 0) return 0.0;
+    if (bytes == 0) return 0.0;
     var k = 1024,
         dm = decimals <= 0 ? 0 : decimals,
         sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
         i = (log(bytes) / log(k)).floor();
     return (((bytes / pow(k, i)).toStringAsFixed(dm)) + ' ' + sizes[i]);
   }
-
 }

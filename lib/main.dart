@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
     return Consumer<AppProvider>(
       builder: (BuildContext context, AppProvider appProvider, Widget child) {
         return MaterialApp(
-          
           key: appProvider.key,
           debugShowCheckedModeBanner: false,
           navigatorKey: appProvider.navigatorKey,
@@ -44,7 +43,6 @@ class MyApp extends StatelessWidget {
           home: Splash(),
           routes: <String, WidgetBuilder>{
             '/MainScreen': (context) => MainScreen(),
-            
           },
         );
       },

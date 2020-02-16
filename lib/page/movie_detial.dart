@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/movierespnse.dart';
@@ -20,48 +22,46 @@ class _MovieDetailsState extends State<MovieDetails> {
         length: 2,
         child: img.Stack(
           children: <Widget>[
-            
             img.Container(
-                height: 280,
-                child: img.Image(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Container(
+                    color: Color.fromARGB(41, 41, 41, 41),
+                  ),
+                ),
+                height: 260,
+                decoration: img.BoxDecoration(
+                    image: DecorationImage(
+                  fit: img.BoxFit.fill,
                   image: NetworkImage(widget.model.cover),
-                  fit: BoxFit.fill,
-                )),
+                ))),
             SingleChildScrollView(
               child: img.Container(
                 color: Colors.white30,
                 child: img.Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(13.0),
                   child: img.Column(
                     children: <Widget>[
                       EboxDetailsHeader(
                         model: widget.model,
                       ),
-                    
                       img.Padding(
-                        padding: const EdgeInsets.only(
-                          left: 10.0,
-                          right: 10,
-                        ),
-                        child: img.Container(
-                            //height:  MediaQuery.of(context).size.height,
-                            color: Colors.black54,
-                            child: img.Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: new Storyline(widget.model.content),
-                                )
-                                //  child: new Storyline(model.content),
-                                )
-                                ),
-                      
-               
-                      
+                          padding: const EdgeInsets.only(
+                            left: 10.0,
+                            right: 10,
+                          ),
+                          child: img.Card(
+                           // color: Colors.brown[300],
+                              child: img.Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: new Storyline(widget.model.content),
+                          ))),
                     ],
                   ),
                 ),
               ),
             ),
-             Align(
+            Align(
               alignment: Alignment.topLeft,
               child: IconButton(
                 padding:

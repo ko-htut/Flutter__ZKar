@@ -53,7 +53,7 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                       img.Padding(
                         padding: const EdgeInsets.only(left: 20.0, right: 20),
                         child: img.Container(
-                          color: Color.fromARGB(150, 41, 41, 41),
+                          color: Colors.grey,
                           child: img.TabBar(
                             tabs: [
                               Tab(
@@ -73,32 +73,30 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                         ),
                         child: img.Container(
                             height: MediaQuery.of(context).size.height - 75,
-                            color: Color.fromARGB(150, 41, 41, 41),
-                            child: Card(
-                              child: img.Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: img.TabBarView(
-                                    children: [
-                                      ListView(
-                                          physics: img
-                                              .NeverScrollableScrollPhysics(),
-                                          children: <Widget>[
-                                            img.Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 10.0,
-                                                  right: 10,
-                                                  bottom: 10),
-                                              child: img.Text(
-                                                widget.model.content,
-                                                style: img.TextStyle(),
-                                              ),
-                                            )
-                                          ]),
-                                      //   DescriptionTextWidget(text:widget.model.content),
-                                      SeasonUi(id: widget.model.id),
-                                    ],
-                                  )),
-                            )),
+                            color: Colors.grey,
+                            child: img.Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: img.TabBarView(
+                                  children: [
+                                    ListView(
+                                        physics: img
+                                            .NeverScrollableScrollPhysics(),
+                                        children: <Widget>[
+                                          img.Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 10.0,
+                                                right: 10,
+                                                bottom: 10),
+                                            child: img.Text(
+                                              widget.model.content,
+                                              style: img.TextStyle(),
+                                            ),
+                                          )
+                                        ]),
+                                    //   DescriptionTextWidget(text:widget.model.content),
+                                    SeasonUi(id: widget.model.id),
+                                  ],
+                                ))),
                       ),
                     ],
                   ),

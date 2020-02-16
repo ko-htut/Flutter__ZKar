@@ -7,7 +7,14 @@ import 'package:flutter_ebox/ui/ebox_item.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class MoviePage extends StatelessWidget {
+class MoviePage extends StatefulWidget {
+  @override
+  _MoviePageState createState() => _MoviePageState();
+}
+
+class _MoviePageState extends State<MoviePage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Consumer<MovieProvider>(builder:
@@ -81,7 +88,8 @@ class MoviePage extends StatelessWidget {
                                 context,
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
-                                  child: MovieDetails(model:movieProvider.movie.data[index]),
+                                  child: MovieDetails(
+                                      model: movieProvider.movie.data[index]),
                                 ),
                               );
                             },

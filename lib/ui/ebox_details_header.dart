@@ -21,7 +21,7 @@ class EboxDetailsHeader extends StatelessWidget {
               height: 165,
             
               decoration: BoxDecoration(
-              color: Color.fromARGB(150, 41, 41, 41),
+              color: Colors.grey,
                  borderRadius: new BorderRadius.vertical(
             top: new Radius.circular(15.0),)
               ),
