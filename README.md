@@ -10,7 +10,7 @@ A few resources to get you started if this is your first Flutter project:
 
 ### Screenshots
 ![GIFYOURLIBRARY](https://raw.githubusercontent.com/hypeapps/episodie/master/img/your_library.gif) ![GIFMOSTPOPULAR](https://raw.githubusercontent.com/hypeapps/episodie/master/img/mostpopular.gif) ![GIFTOPLIST](https://raw.githubusercontent.com/hypeapps/episodie/master/img/toplist.gif)
-<img src="https://raw.githubusercontent.com/hypeapps/episodie/master/ssimg/Screenshot_1582446348.png" alt="Most popular" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/ssimg/Screenshot_1582446348.png" alt="Details" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/ssimg/Screenshot_1582446348.png" alt="Your Library" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/img/scr8.jpg" alt="Episodes list" height="335"/>
+<img src="https://raw.githubusercontent.com/kominthanhtut/Flutter__ZKar/master/ssimg/Screenshot_1582446348.png" alt="Most popular" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/ssimg/Screenshot_1582446348.png" alt="Details" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/ssimg/Screenshot_1582446348.png" alt="Your Library" height="335"/> <img src="https://raw.githubusercontent.com/hypeapps/episodie/master/img/scr8.jpg" alt="Episodes list" height="335"/>
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
