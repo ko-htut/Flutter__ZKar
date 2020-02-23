@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ebox/page/register.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
-import 'package:flutter_ebox/providers/series_provider.dart';
 import 'package:flutter_ebox/providers/user_provider.dart';
 import 'package:flutter_ebox/services/services.dart';
 import 'package:flutter_ebox/util/share.dart';
@@ -94,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(top: 20),
                     child: MaterialButton(
                       onPressed: () {
+                       
                         logi();
                       }, //since this is only a UI app
                       child: Text(
@@ -159,8 +159,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   logi() async {
+    
+  print("it click ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
+
     final ressponse =
         await loginn(emaileditcontroller.text, passwordeditcontroller.text);
+         print("it click2 ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
     if (ressponse.status) {
       ShareData(
           name: ressponse.data.name,
@@ -180,7 +184,6 @@ class _LoginPageState extends State<LoginPage> {
     }
     print("My Login Token is $token");
     Provider.of<MovieProvider>(context, listen: false).gethmovie();
-
     Provider.of<SongProvider>(context, listen: false).gethsong();
     Provider.of<UserProvider>(context, listen: false).gethusers();
   }

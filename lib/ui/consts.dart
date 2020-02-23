@@ -26,7 +26,7 @@ class Constants {
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
-        headline6: TextStyle(
+        title: TextStyle(
           fontFamily: "TimesNewRoman",
           color: Colors.black,
           fontSize: 20,
@@ -48,7 +48,7 @@ class Constants {
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
-        headline6: TextStyle(
+        title: TextStyle(
           fontFamily: "TimesNewRoman",
           color: lightBG,
           fontSize: 20,

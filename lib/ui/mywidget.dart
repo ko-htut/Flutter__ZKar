@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 
 class MyCustonListTitle extends StatelessWidget {
   final data;
@@ -19,8 +20,13 @@ class MyCustonListTitle extends StatelessWidget {
               children: <Widget>[
                 Icon(icon),
                 Padding(
-                  padding: const EdgeInsets.only(left:5.0),
-                  child: Text("$data",style: TextStyle(fontWeight: FontWeight.bold),),
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: Marquee(
+                      child: Text(
+                    "$data",
+                    maxLines: 1,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )),
                 )
               ],
             ),

@@ -50,7 +50,7 @@ Future<Movie> getmovie(String key) async {
     'page': "1",
   }, headers: {
     HttpHeaders.authorizationHeader: "Bearer $key"
-  });
+  } );
   return movieFromJson(responsemovie.body);
 }
 

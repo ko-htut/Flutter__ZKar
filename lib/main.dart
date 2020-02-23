@@ -11,10 +11,7 @@ import 'package:flutter_ebox/ui/consts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
- 
-
   runApp(
-    
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppProvider()),

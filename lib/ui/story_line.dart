@@ -17,14 +17,14 @@ class Storyline extends StatelessWidget {
         children: <Widget>[
            Text(
             'Story line',
-            style: textTheme.subtitle1.copyWith(fontSize: 18.0),
+            style: textTheme.title.copyWith(fontSize: 18.0),
           ),
           Wrap(
             // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
                Text(
                   storyline,
-                  style: textTheme.bodyText2.copyWith(
+                  style: textTheme.subtitle.copyWith(
                     fontSize: 16.0,
                   ),
                 ),

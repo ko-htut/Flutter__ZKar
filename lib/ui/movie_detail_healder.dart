@@ -4,6 +4,7 @@ import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/page/poster.dart';
 import 'package:flutter_ebox/ui/ebox_logo.dart';
 import 'package:flutter_ebox/ui/mywidget.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 
 class EboxDetailsHeader extends StatelessWidget {
   final Datum model;
@@ -19,6 +20,7 @@ class EboxDetailsHeader extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(top: 35.0),
               child: Card(
+                elevation: 0,
                 child: Container(
                   height: 165,
                   decoration: BoxDecoration(
@@ -54,17 +56,22 @@ class EboxDetailsHeader extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Text(
+                            
                               model.title,
+                              maxLines: 2,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(5.0),
-                            child: Text(
-                              model.originalTitle,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            child: Marquee(
+                                                          child: Text(
+                                model.originalTitle,
+                                maxLines: 1,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
                             ),
                           ),
                           Container(
@@ -99,7 +106,7 @@ class EboxDetailsHeader extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0, top: 14),
                 child: Container(
-                    width: 120,
+                    width: 135,
                     child: MyCustonListTitle(
                       data: model.runtime,
                       ontap: () {},

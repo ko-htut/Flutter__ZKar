@@ -51,6 +51,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             right: 10,
                           ),
                           child: img.Card(
+                            elevation: 0,
                            // color: Colors.brown[300],
                               child: img.Padding(
                             padding: const EdgeInsets.all(15.0),
