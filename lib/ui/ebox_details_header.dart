@@ -17,13 +17,13 @@ class EboxDetailsHeader extends StatelessWidget {
         child: Stack(children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 35.0),
-            child: Container(
-              height: 165,
-            
-              decoration: BoxDecoration(
-              color: Colors.grey,
-                 borderRadius: new BorderRadius.vertical(
-            top: new Radius.circular(15.0),)
+            child: Card(
+              child: Container(
+                height: 165,
+                decoration: BoxDecoration(
+                    borderRadius: new BorderRadius.vertical(
+                  top: new Radius.circular(15.0),
+                )),
               ),
             ),
           ),
@@ -38,8 +38,6 @@ class EboxDetailsHeader extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 5.0),
                     child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //  mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -57,7 +55,6 @@ class EboxDetailsHeader extends StatelessWidget {
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                         ),
-                    
                       ],
                     ),
                   ),
@@ -73,10 +70,17 @@ class EboxDetailsHeader extends StatelessWidget {
                     height: 35,
                     width: 100,
                     decoration: BoxDecoration(
-                     color: Color.fromARGB(150, 41, 41, 41),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Card(child: Center(child: Text(model.credit.id.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
+                    child: Card(
+                      margin: EdgeInsets.all(0),
+                  elevation: 0,
+                        child: Center(
+                            child: Text(
+                      model.credit.id.toString(),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ))),
                   ))),
         ]),
       ),

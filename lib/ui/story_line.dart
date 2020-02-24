@@ -11,32 +11,30 @@ class Storyline extends StatelessWidget {
     var theme = Theme.of(context);
     var textTheme = theme.textTheme;
 
-    return   Column(
+    return Column(
       mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-           Text(
-            'Story line',
-            style: textTheme.title.copyWith(fontSize: 18.0),
-          ),
-          Wrap(
-            // mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-               Text(
-                  storyline,
-                  style: textTheme.subtitle.copyWith(
-                    fontSize: 16.0,
-                  ),
-                ),
-            ],
-          ),
-           Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[],
-          ),
-        ],
-      
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Story line',
+          style: textTheme.title.copyWith(fontSize: 18.0),
+        ),
+        Wrap(
+          children: <Widget>[
+            Text(
+              storyline,
+              style: textTheme.subtitle.copyWith(
+                fontSize: 16.0,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[],
+        ),
+      ],
     );
   }
 }

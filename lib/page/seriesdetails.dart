@@ -42,7 +42,7 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                 ))),
             SingleChildScrollView(
               child: img.Container(
-             //   color: Color.fromARGB(150, 41, 41, 41),
+                //   color: Color.fromARGB(150, 41, 41, 41),
                 child: img.Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: img.Column(
@@ -52,8 +52,10 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                       ),
                       img.Padding(
                         padding: const EdgeInsets.only(left: 20.0, right: 20),
-                        child: img.Container(
-                          color: Colors.grey,
+                        child: img.Card(
+                           shape: RoundedRectangleBorder(borderRadius:  BorderRadius.only(bottomLeft:Radius.circular(0),bottomRight: img.Radius.circular(0),topLeft: Radius.circular(5),topRight: img.Radius.circular(5))),
+                          margin: EdgeInsets.all(0),
+                          elevation: 0,
                           child: img.TabBar(
                             tabs: [
                               Tab(
@@ -71,32 +73,35 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                           left: 20.0,
                           right: 20,
                         ),
-                        child: img.Container(
-                            height: MediaQuery.of(context).size.height - 75,
-                            color: Colors.grey,
-                            child: img.Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: img.TabBarView(
-                                  children: [
-                                    ListView(
-                                        physics: img
-                                            .NeverScrollableScrollPhysics(),
-                                        children: <Widget>[
-                                          img.Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 10.0,
-                                                right: 10,
-                                                bottom: 10),
-                                            child: img.Text(
-                                              widget.model.content,
-                                              style: img.TextStyle(),
-                                            ),
-                                          )
-                                        ]),
-                                    //   DescriptionTextWidget(text:widget.model.content),
-                                    SeasonUi(id: widget.model.id),
-                                  ],
-                                ))),
+                        child: img.Card(
+                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft:Radius.circular(0),bottomRight: img.Radius.circular(0))),
+                            margin: EdgeInsets.all(0),
+                            elevation: 0,
+                            child: img.Container(
+                              height: MediaQuery.of(context).size.height - 75,
+                              child: img.Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: img.TabBarView(
+                                    children: [
+                                      ListView(
+                                          physics: img
+                                              .NeverScrollableScrollPhysics(),
+                                          children: <Widget>[
+                                            img.Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0,
+                                                  right: 10,
+                                                  bottom: 10),
+                                              child: img.Text(
+                                                widget.model.content,
+                                                style: img.TextStyle(fontWeight: img.FontWeight.bold),
+                                              ),
+                                            )
+                                          ]),
+                                      SeasonUi(id: widget.model.id),
+                                    ],
+                                  )),
+                            )),
                       ),
                     ],
                   ),
