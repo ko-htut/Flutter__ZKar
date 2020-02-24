@@ -13,7 +13,7 @@ class EboxDetailsHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 120),
       child: Container(
-        // color: Colors.white30,
+        
         child: Stack(children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 35.0),

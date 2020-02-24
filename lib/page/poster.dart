@@ -17,7 +17,7 @@ class Poster extends StatelessWidget {
 
     return new Material(
       borderRadius: new BorderRadius.circular(4.0),
-      elevation: 10.0,
+      elevation: 0.0,
       child: Container(
         width: width,
         height: height,

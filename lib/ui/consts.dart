@@ -8,7 +8,7 @@ class Constants {
   static String appName = "Zkar";
   //Colors for theme
   static Color lightPrimary = Colors.white;
-  static Color darkPrimary = Colors.black;
+  static Color darkPrimary = Colors.white;
   static Color lightAccent = Color(0xff06d6a7);
   static Color darkAccent = Color(0xff06d6a7);
   static Color lightBG = Colors.white;
@@ -17,6 +17,7 @@ class Constants {
 
   static ThemeData lightTheme = ThemeData(
     fontFamily: "TimesNewRoman",
+  
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
     accentColor: lightAccent,
@@ -45,10 +46,13 @@ class Constants {
     accentColor: darkAccent,
     scaffoldBackgroundColor: darkBG,
     cursorColor: darkAccent,
+    
     appBarTheme: AppBarTheme(
       elevation: 0,
       textTheme: TextTheme(
+        
         title: TextStyle(
+          
           fontFamily: "TimesNewRoman",
           color: lightBG,
           fontSize: 20,

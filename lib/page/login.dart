@@ -53,22 +53,25 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                    child: Container(
-                      color: Color(0xfff5f5f5),
-                      child: TextField(
-                        controller: emaileditcontroller,
-                        onSubmitted: (email) {
-                          emaileditcontroller.text = email;
-                        },
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Email',
-                            prefixIcon: Icon(Icons.person_outline),
-                            labelStyle: TextStyle(fontSize: 15)),
+                    child: TextField(
+                       autofocus: false,
+                      keyboardType: TextInputType.emailAddress,
+                      controller: emaileditcontroller,
+                      onSubmitted: (email) {
+                        emaileditcontroller.text = email;
+                      },
+                      style: TextStyle(
+                        color: Colors.black,
                       ),
+                      decoration: InputDecoration(
+                       
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0)),
+                          labelText: 'Email',
+                          prefixIcon: Icon(Icons.person_outline),
+                          labelStyle: TextStyle(fontSize: 15)),
                     ),
                   ),
                   Container(
@@ -93,7 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(top: 20),
                     child: MaterialButton(
                       onPressed: () {
-                       
                         logi();
                       }, //since this is only a UI app
                       child: Text(
@@ -159,12 +161,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   logi() async {
-    
-  print("it click ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
+    print(
+        "it click ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
 
     final ressponse =
         await loginn(emaileditcontroller.text, passwordeditcontroller.text);
-         print("it click2 ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
+    print(
+        "it click2 ${emaileditcontroller.text}, ${passwordeditcontroller.text}");
     if (ressponse.status) {
       ShareData(
           name: ressponse.data.name,

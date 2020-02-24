@@ -26,7 +26,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                   child: Container(
-                    color: Color.fromARGB(41, 41, 41, 41),
+                    color: Color.fromARGB(40, 43, 35, 43),
                   ),
                 ),
                 height: 260,
@@ -37,7 +37,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                 ))),
             SingleChildScrollView(
               child: img.Container(
-                color: Colors.white30,
+                color: Color.fromARGB(41, 41, 41, 41),
                 child: img.Padding(
                   padding: const EdgeInsets.all(13.0),
                   child: img.Column(
