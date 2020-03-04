@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/providers/episode_provider.dart';
+import 'package:flutter_ebox/ui/dialog_list.dart';
 import 'package:flutter_ebox/ui/episode_widget.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +61,39 @@ class SeasonScreen extends StatelessWidget {
                                 image: NetworkImage(varimg),
                               ))),
                         ),
+                        actions: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8.0, bottom: 8.0, right: 8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Image(
+                                      image: AssetImage('images/ic_point.png'),
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Marquee(
+                                      child: Text(
+                                        "50",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ];
                   },
@@ -69,8 +104,18 @@ class SeasonScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
-                        child: EpisodeItem(episodemodel: episodeProvider.episode.data[index],)
-                      );
+                          child: EpisodeItem(
+                        ondownloadtap: () {
+                          print("hello download");
+                        },
+                        onplaytap: () {
+                          print("hello video play");
+                        },
+                        reporttap: () {
+                          print("hello data report");
+                        },
+                        episodemodel: episodeProvider.episode.data[index],
+                      ));
                     },
                   ),
                 ),

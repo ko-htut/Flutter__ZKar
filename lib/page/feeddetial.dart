@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/model/songresponse.dart';
 import 'package:flutter_ebox/ui/ebox_logo.dart';
-import 'package:flutter_ijkplayer/flutter_ijkplayer.dart';
 
 class PostDetial extends StatefulWidget {
   final Datum model;
@@ -17,17 +16,17 @@ class PostDetial extends StatefulWidget {
 }
 
 class _PostDetialPageState extends State<PostDetial> {
-  IjkMediaController controller = IjkMediaController();
+
 
   @override
   void initState() {
     super.initState();
-    initIjkController();
+   
   }
 
   @override
   void dispose() {
-    controller.dispose();
+  
     super.dispose();
   }
 
@@ -41,10 +40,7 @@ class _PostDetialPageState extends State<PostDetial> {
               color: Colors.black,
               child: AspectRatio(
                 aspectRatio: 1280 / 720,
-                child: IjkPlayer(
-                  
-                  mediaController: controller,
-                ),
+                
               ),
             ),
             Align(
@@ -116,18 +112,5 @@ class _PostDetialPageState extends State<PostDetial> {
     );
   }
 
-  void initIjkController() async {
-    print(widget.model.video);
-    var option1 = IjkOption(IjkOptionCategory.format, "fflags", "fastseek");
-
-    controller.setIjkPlayerOptions(
-      [TargetPlatform.iOS, TargetPlatform.android],
-      [option1].toSet(),
-    );
-
-    await controller.setDataSource(
-      DataSource.network(widget.model.video),
-      autoPlay: true,
-    );
-  }
+ 
 }

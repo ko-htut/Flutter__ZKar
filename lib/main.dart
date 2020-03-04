@@ -3,6 +3,7 @@ import 'package:flutter_ebox/page/mainbody.dart';
 import 'package:flutter_ebox/page/season_page.dart';
 import 'package:flutter_ebox/page/splash.dart';
 import 'package:flutter_ebox/providers/app_provider.dart';
+
 import 'package:flutter_ebox/providers/episode_provider.dart';
 import 'package:flutter_ebox/providers/movie_provider.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
@@ -23,6 +24,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => SongProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => EpisodeProvider()),
+       
       ],
       child: MyApp(),
     ),

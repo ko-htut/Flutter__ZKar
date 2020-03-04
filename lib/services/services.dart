@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter_ebox/model/episode_buy_response.dart';
+import 'package:flutter_ebox/model/episode_direct_link.dart';
 import 'package:flutter_ebox/model/episode_response.dart';
 import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/model/resigerresponse.dart';
@@ -21,12 +23,14 @@ final movirep = "movie/report";
 final movidrcunt = "movie_directlink/count";
 final movidcount = "movie_download/count";
 final moviby = "buy/movie";
+final epiby = "buy/episode";
 final seri = "series";
 final sesn = "season";
 final episn = "episode";
 final post = "news";
 final genre = "show/genre";
 final user = "user";
+final epdirectlink = "episode_directlink";
 
 Future<Registerresponse> register(
     String name, String email, String password) async {
@@ -84,6 +88,26 @@ Future<EpisodeResponse> getepisode(String key,String id) async {
   });
   print(responsemyepisode.body);
   return episodeResponseFromJson(responsemyepisode.body);
+}
+Future<EpisodeDirectlink> getepdirect(String key,String id) async {
+  final responsemyepisodelink = await http.post("$link$episn", body: {
+    'id': id,
+  }, headers: {
+    HttpHeaders.authorizationHeader: "Bearer $key"
+  });
+  print(responsemyepisodelink.body);
+  return episodeDirectlinkFromJson(responsemyepisodelink.body);
+}
+
+Future<EBresponse> getepbuy(String key,String id) async {
+  print("hello test epbuy $id");
+  final responseEBuy = await http.post("$link$epiby", body: {
+    'id': id,
+  }, headers: {
+    HttpHeaders.authorizationHeader: "Bearer $key"
+  });
+  print(responseEBuy.body);
+  return eBresponseFromJson(responseEBuy.body);
 }
 
 Future<Song> getsong(String key) async {
