@@ -98,7 +98,7 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                                               ),
                                             )
                                           ]),
-                                      SeasonUi(id: widget.model.id),
+                                      SeasonUi(id: widget.model.id,varimg: widget.model.cover,)
                                     ],
                                   )),
                             )),

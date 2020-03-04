@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter_ebox/model/episode_response.dart';
 import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/model/resigerresponse.dart';
 import 'package:flutter_ebox/model/season_response.dart';
@@ -22,6 +23,7 @@ final movidcount = "movie_download/count";
 final moviby = "buy/movie";
 final seri = "series";
 final sesn = "season";
+final episn = "episode";
 final post = "news";
 final genre = "show/genre";
 final user = "user";
@@ -73,6 +75,15 @@ Future<Season> getseason(String key,String id) async {
   });
   print(repnseseries.body);
   return seasonFromJson(repnseseries.body);
+}
+Future<EpisodeResponse> getepisode(String key,String id) async {
+  final responsemyepisode = await http.post("$link$episn", body: {
+    'id': id,
+  }, headers: {
+    HttpHeaders.authorizationHeader: "Bearer $key"
+  });
+  print(responsemyepisode.body);
+  return episodeResponseFromJson(responsemyepisode.body);
 }
 
 Future<Song> getsong(String key) async {

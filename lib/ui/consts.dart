@@ -8,7 +8,7 @@ class Constants {
   static String appName = "Zkar";
   //Colors for theme
   static Color lightPrimary = Colors.white;
-  static Color darkPrimary = Colors.white;
+  static Color darkPrimary = Colors.black;
   static Color lightAccent = Color(0xff06d6a7);
   static Color darkAccent = Color(0xff06d6a7);
   static Color lightBG = Colors.white;
