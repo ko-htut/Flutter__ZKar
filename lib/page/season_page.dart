@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ebox/providers/episode_provider.dart';
+import 'package:flutter_ebox/ui/episode_widget.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
@@ -68,19 +69,7 @@ class SeasonScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
-                        child: Card(
-                            elevation: 0,
-                            child: ListTile(
-                              leading: Padding(
-                                padding: const EdgeInsets.all(9.0),
-                                child:
-                                    Image(image: AssetImage('images/logo.png')),
-                              ),
-                              title: Text(
-                                  episodeProvider.episode.data[index].name),
-                              subtitle: Text(episodeProvider
-                                  .episode.data[index].originalName),
-                            )),
+                        child: EpisodeItem(episodemodel: episodeProvider.episode.data[index],)
                       );
                     },
                   ),
