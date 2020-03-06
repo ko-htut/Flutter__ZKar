@@ -23,7 +23,7 @@ class SeasonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Provider.of<EpisodeProvider>(context, listen: false)
-        .gethepisode(id.toString());
+        .setepisodeid(id.toString());
     return Consumer<EpisodeProvider>(builder:
         (BuildContext context, EpisodeProvider episodeProvider, Widget widget) {
       return episodeProvider.loading
@@ -31,7 +31,7 @@ class SeasonScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             )
           : RefreshIndicator(
-              onRefresh: () => episodeProvider.gethepisode(id.toString()),
+              onRefresh: () => episodeProvider.getepisodeid(),
               child: Scaffold(
                 body: NestedScrollView(
                   headerSliverBuilder:
@@ -84,7 +84,8 @@ class SeasonScreen extends StatelessWidget {
                                     ),
                                     Marquee(
                                       child: Text(
-                                        "50",
+                                        episodeProvider.userdatas.points
+                                            .toString(),
                                         style: TextStyle(fontSize: 20),
                                       ),
                                     )

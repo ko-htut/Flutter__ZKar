@@ -10,13 +10,14 @@ class EboxDetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+    var textTheme = theme.textTheme;
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 120),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 120),
       child: Container(
-        
         child: Stack(children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 35.0),
+            padding: const EdgeInsets.only(top: 30.0),
             child: Card(
               child: Container(
                 height: 165,
@@ -36,26 +37,63 @@ class EboxDetailsHeader extends StatelessWidget {
                 Poster(model.poster, height: 200),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            model.title,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
+                    padding: const EdgeInsets.only(left: 5.0, top: 50),
+                    child: Container(
+                      height: 140,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                model.title,
+                                maxLines: 1,
+                                style: textTheme.title.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            model.originalTitle,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                model.originalTitle,
+                                style: textTheme.subtitle.copyWith(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                "Rating : R ${model.contentRating}",
+                                maxLines: 1,
+                                style: textTheme.subtitle.copyWith(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                "User rating : ${model.imdbRating}",
+                                maxLines: 1,
+                                style: textTheme.subtitle.copyWith(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -73,14 +111,14 @@ class EboxDetailsHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Card(
-                      margin: EdgeInsets.all(0),
-                  elevation: 0,
+                        margin: EdgeInsets.all(0),
+                        elevation: 0,
                         child: Center(
                             child: Text(
-                      model.credit.id.toString(),
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ))),
+                          model.credit.id.toString(),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ))),
                   ))),
         ]),
       ),

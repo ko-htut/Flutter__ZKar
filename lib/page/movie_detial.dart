@@ -39,7 +39,7 @@ class _MovieDetailsState extends State<MovieDetails> {
               child: img.Container(
                 color: Color.fromARGB(41, 41, 41, 41),
                 child: img.Padding(
-                  padding: const EdgeInsets.all(13.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: img.Column(
                     children: <Widget>[
                       EboxDetailsHeader(
@@ -47,16 +47,15 @@ class _MovieDetailsState extends State<MovieDetails> {
                       ),
                       img.Padding(
                           padding: const EdgeInsets.only(
-                            left: 10.0,
-                            right: 10,
+                            left: 8.0,
+                            right: 8,
                           ),
                           child: img.Card(
-                            elevation: 0,
-                           // color: Colors.brown[300],
+                              elevation: 0,
                               child: img.Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: new Storyline(widget.model.content),
-                          ))),
+                                padding: const EdgeInsets.all(15.0),
+                                child: new Storyline(widget.model.content),
+                              ))),
                     ],
                   ),
                 ),

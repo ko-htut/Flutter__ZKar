@@ -23,9 +23,7 @@ class Storyline extends StatelessWidget {
           children: <Widget>[
             Text(
               storyline,
-              style: textTheme.subtitle.copyWith(
-                fontSize: 16.0,
-              ),
+              style: textTheme.subtitle.copyWith(),
             ),
           ],
         ),

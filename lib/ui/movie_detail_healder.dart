@@ -3,6 +3,7 @@ import 'package:flutter/material.dart' as img;
 import 'package:flutter_ebox/model/movierespnse.dart';
 import 'package:flutter_ebox/page/poster.dart';
 import 'package:flutter_ebox/ui/ebox_logo.dart';
+import 'package:flutter_ebox/ui/episode_item_data.dart';
 import 'package:flutter_ebox/ui/mywidget.dart';
 import 'package:marquee_widget/marquee_widget.dart';
 
@@ -12,7 +13,9 @@ class EboxDetailsHeader extends StatelessWidget {
   EboxDetailsHeader({Key key, @required this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // bool b = bool.fromEnvironment("name");
+    var theme = Theme.of(context);
+    var textTheme = theme.textTheme;
+    bool bought = false;
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 135),
       child: Container(
@@ -28,13 +31,6 @@ class EboxDetailsHeader extends StatelessWidget {
                       top: new Radius.circular(15.0),
                     ),
                   ),
-                  // child: Container(
-                  //   child: Column(
-                  //     children: <Widget>[
-
-                  //     ],
-                  //   ),
-                  // ),
                 ),
               )),
           Padding(
@@ -55,44 +51,86 @@ class EboxDetailsHeader extends StatelessWidget {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.all(5.0),
-                            child: Text(
-                            
-                              model.title,
-                              maxLines: 2,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
+                            child: Container(
+                              width: double.infinity,
+                              child: Marquee(
+                                child: Text(
+                                  model.title,
+                                  maxLines: 1,
+                                  style: textTheme.title.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(5.0),
-                            child: Marquee(
-                                                          child: Text(
-                                model.originalTitle,
-                                maxLines: 1,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                            child: Container(
+                              width: double.infinity,
+                              child: Marquee(
+                                child: Text(
+                                  model.originalTitle,
+                                  maxLines: 1,
+                                  style: textTheme.subtitle.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(5)
-                            ),
-                              height: 50,
-                              width: double.infinity,
-                              
-                              child: (model.points > 0)
-                                  ? (model.bought == "false")
-                                      ? Icon(Icons.lock)
-                                      : Row(children: <Widget>[
-                                        Icon(Icons.watch),
-                                        Icon(Icons.arrow_downward)
-                                      ],)
-                                  : Row(children: <Widget>[
-                                        Expanded(child: Icon(Icons.movie)),
-                                        Expanded(child: Icon(Icons.file_download))
-                                      ],) )
+                          (model.points > 0)
+                              ? (model.bought != bought)
+                                  ? MyEpdataBT(
+                                      name: "Buy",
+                                      icon: Icons.shopping_cart,
+                                      background: Colors.lightBlue,
+                                      datacolor: Colors.white,
+                                      tap: () {},
+                                    )
+                                  : Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: MyEpdataBT(
+                                            name: "watch",
+                                            icon: Icons.play_arrow,
+                                            background: Colors.lightBlue,
+                                            datacolor: Colors.white,
+                                            tap: () {},
+                                          ),
+                                        ),
+                                        MyEpdataBT(
+                                          name: "Dwonload",
+                                          icon: Icons.cloud_download,
+                                          background: Colors.lightBlue,
+                                          datacolor: Colors.white,
+                                          tap: () {},
+                                        )
+                                      ],
+                                    )
+                              : Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: MyEpdataBT(
+                                        name: "watch",
+                                        icon: Icons.play_arrow,
+                                        background: Colors.lightBlue,
+                                        datacolor: Colors.white,
+                                        tap: () {},
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5.0),
+                                      child: MyEpdataBT(
+                                        name: "Dwonload",
+                                        icon: Icons.cloud_download,
+                                        background: Colors.lightBlue,
+                                        datacolor: Colors.white,
+                                        tap: () {},
+                                      ),
+                                    )
+                                  ],
+                                )
                         ],
                       ),
                     ),

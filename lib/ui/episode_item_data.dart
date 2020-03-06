@@ -23,9 +23,9 @@ class _MyEpdataBTState extends State<MyEpdataBT> {
       onTap: widget.tap,
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: widget.background),
+              borderRadius: BorderRadius.circular(8), color: widget.background),
           child: Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(3.0),
             child: Row(
               children: <Widget>[
                 Icon(widget.icon, color: widget.datacolor),
@@ -33,7 +33,7 @@ class _MyEpdataBTState extends State<MyEpdataBT> {
                   padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                   child: Text(
                     widget.name,
-                    style: textTheme.subtitle.copyWith(color: widget.datacolor),
+                    style: textTheme.button.copyWith(color: widget.datacolor),
                   ),
                 )
               ],

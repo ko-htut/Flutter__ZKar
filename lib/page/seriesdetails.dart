@@ -11,15 +11,10 @@ import 'package:flutter_ebox/ui/decription_widget.dart';
 import 'package:flutter_ebox/ui/ebox_details_header.dart';
 import 'package:flutter_ebox/ui/story_line.dart';
 
-class SeriesDetails extends StatefulWidget {
+class SeriesDetails extends StatelessWidget {
   final Datum model;
   SeriesDetails({Key key, @required this.model});
 
-  @override
-  _SeriesDetailsState createState() => _SeriesDetailsState();
-}
-
-class _SeriesDetailsState extends State<SeriesDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,22 +33,27 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                 decoration: img.BoxDecoration(
                     image: DecorationImage(
                   fit: img.BoxFit.fill,
-                  image: NetworkImage(widget.model.cover),
+                  image: NetworkImage(model.cover),
                 ))),
             SingleChildScrollView(
               child: img.Container(
                 //   color: Color.fromARGB(150, 41, 41, 41),
                 child: img.Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: img.Column(
                     children: <Widget>[
                       EboxDetailsHeader(
-                        model: widget.model,
+                        model: model,
                       ),
                       img.Padding(
-                        padding: const EdgeInsets.only(left: 20.0, right: 20),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15),
                         child: img.Card(
-                           shape: RoundedRectangleBorder(borderRadius:  BorderRadius.only(bottomLeft:Radius.circular(0),bottomRight: img.Radius.circular(0),topLeft: Radius.circular(5),topRight: img.Radius.circular(5))),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: img.Radius.circular(0),
+                                  topLeft: Radius.circular(5),
+                                  topRight: img.Radius.circular(5))),
                           margin: EdgeInsets.all(0),
                           elevation: 0,
                           child: img.TabBar(
@@ -70,11 +70,14 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                       ),
                       img.Padding(
                         padding: const EdgeInsets.only(
-                          left: 20.0,
-                          right: 20,
+                          left: 15.0,
+                          right: 15,
                         ),
                         child: img.Card(
-                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft:Radius.circular(0),bottomRight: img.Radius.circular(0))),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0),
+                                    bottomRight: img.Radius.circular(0))),
                             margin: EdgeInsets.all(0),
                             elevation: 0,
                             child: img.Container(
@@ -89,16 +92,21 @@ class _SeriesDetailsState extends State<SeriesDetails> {
                                           children: <Widget>[
                                             img.Padding(
                                               padding: const EdgeInsets.only(
-                                                  left: 10.0,
-                                                  right: 10,
-                                                  bottom: 10),
+                                                  left: 5.0,
+                                                  right: 5,
+                                                  bottom: 5),
                                               child: img.Text(
-                                                widget.model.content,
-                                                style: img.TextStyle(fontWeight: img.FontWeight.bold),
+                                                model.content,
+                                                style: img.TextStyle(
+                                                    fontWeight:
+                                                        img.FontWeight.bold),
                                               ),
                                             )
                                           ]),
-                                      SeasonUi(id: widget.model.id,varimg: widget.model.cover,)
+                                      SeasonUi(
+                                        id: model.id,
+                                        varimg: model.cover,
+                                      )
                                     ],
                                   )),
                             )),
