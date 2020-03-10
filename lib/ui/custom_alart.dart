@@ -15,7 +15,6 @@ class CustomAlert extends StatelessWidget {
   double deviceHeight;
   double dialogHeight;
 
-
   @override
   Widget build(BuildContext context) {
 

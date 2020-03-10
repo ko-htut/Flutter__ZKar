@@ -108,10 +108,14 @@ class EboxDetailsHeader extends StatelessWidget {
                                         )
                                       ],
                                     )
-                              : Row(
+                              : Expanded(
+                                flex: 2,
+                                                              child: Row(
+                                 
                                   children: <Widget>[
                                     Expanded(
-                                      child: MyEpdataBT(
+                                      flex: 1,
+                                                                          child: MyEpdataBT(
                                         name: "watch",
                                         icon: Icons.play_arrow,
                                         background: Colors.lightBlue,
@@ -119,9 +123,9 @@ class EboxDetailsHeader extends StatelessWidget {
                                         tap: () {},
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 5.0),
-                                      child: MyEpdataBT(
+                                    Expanded(
+                                      flex: 1,
+                                                                          child: MyEpdataBT(
                                         name: "Dwonload",
                                         icon: Icons.cloud_download,
                                         background: Colors.lightBlue,
@@ -130,7 +134,8 @@ class EboxDetailsHeader extends StatelessWidget {
                                       ),
                                     )
                                   ],
-                                )
+                                ),
+                              )
                         ],
                       ),
                     ),
