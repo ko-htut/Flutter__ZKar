@@ -99,23 +99,23 @@ class EboxDetailsHeader extends StatelessWidget {
                                             tap: () {},
                                           ),
                                         ),
-                                        MyEpdataBT(
-                                          name: "Dwonload",
-                                          icon: Icons.cloud_download,
-                                          background: Colors.lightBlue,
-                                          datacolor: Colors.white,
-                                          tap: () {},
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 5.0),
+                                          child: MyEpdataBT(
+                                            name: "Dwonload",
+                                            icon: Icons.cloud_download,
+                                            background: Colors.lightBlue,
+                                            datacolor: Colors.white,
+                                            tap: () {},
+                                          ),
                                         )
                                       ],
                                     )
-                              : Expanded(
-                                flex: 2,
-                                                              child: Row(
-                                 
+                              : Row(
                                   children: <Widget>[
                                     Expanded(
-                                      flex: 1,
-                                                                          child: MyEpdataBT(
+                                      child: MyEpdataBT(
                                         name: "watch",
                                         icon: Icons.play_arrow,
                                         background: Colors.lightBlue,
@@ -123,9 +123,9 @@ class EboxDetailsHeader extends StatelessWidget {
                                         tap: () {},
                                       ),
                                     ),
-                                    Expanded(
-                                      flex: 1,
-                                                                          child: MyEpdataBT(
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5.0),
+                                      child: MyEpdataBT(
                                         name: "Dwonload",
                                         icon: Icons.cloud_download,
                                         background: Colors.lightBlue,
@@ -134,8 +134,7 @@ class EboxDetailsHeader extends StatelessWidget {
                                       ),
                                     )
                                   ],
-                                ),
-                              )
+                                )
                         ],
                       ),
                     ),

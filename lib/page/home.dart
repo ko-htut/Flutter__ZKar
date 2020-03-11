@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ebox/page/demo_video_play.dart';
 import 'package:flutter_ebox/page/feeddetial.dart';
 import 'package:flutter_ebox/providers/post_provier.dart';
 import 'package:flutter_ebox/ui/mywidget.dart';
@@ -102,6 +103,7 @@ class HomePage extends StatelessWidget {
                                 context,
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
+                                //  child: MyApp2()
                                   child: PostDetial(model: songProvider.songs.data[index],trans: Colors.transparent,)
                                 )
                               );

@@ -89,7 +89,7 @@ class _EpisodeItemState extends State<EpisodeItem> {
                                   name: "Dwonload",
                                   icon: Icons.cloud_download,
                                   background: Colors.green[50],
-                                  datacolor: Colors.green,
+                                  datacolor: Colors.black,
                                   tap: widget.ondownloadtap,
                                 ),
                                 Padding(
@@ -98,7 +98,7 @@ class _EpisodeItemState extends State<EpisodeItem> {
                                       name: "Play",
                                       icon: Icons.play_arrow,
                                       background: Colors.green[50],
-                                      datacolor: Colors.green,
+                                      datacolor: Colors.black,
                                       tap: widget.onplaytap,
                                     ))
                               ],

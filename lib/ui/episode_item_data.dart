@@ -27,12 +27,15 @@ class _MyEpdataBTState extends State<MyEpdataBT> {
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            
               children: <Widget>[
                 Icon(widget.icon, color: widget.datacolor),
-                Text(
-                  widget.name,
-                  style: textTheme.button.copyWith(color: widget.datacolor),
+                Padding(
+                  padding: const EdgeInsets.only(left:5.0),
+                  child: Text(
+                    widget.name,
+                    style: textTheme.button.copyWith(color: widget.datacolor),
+                  ),
                 )
               ],
             ),
