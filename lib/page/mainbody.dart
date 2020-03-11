@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_item.dart';
 import 'package:flutter/material.dart';
