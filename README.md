@@ -17,9 +17,9 @@
 - News 
 - Donte (NO)
 - Donte user (NO)
-- Movie Play (Done)
+- Movie Play (No)
 - Movie Download (Done)
 - Movie Buy (Done)
-- Episode Play (Done)
+- Episode Play (No)
 - Episode Download (Done)
 - Episode Buy (Done)
